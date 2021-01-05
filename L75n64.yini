@@ -1,13 +1,13 @@
-Name                                 : CosmoL75n64
+ProjectName                                 : CosmoL75n64
 
-Gas_File			     : L75n64.yicg
-Gravity_File		             : L75n64.yop
+FileName_Gas			     : L75n64.yicg
+FileName_Gravity		             : L75n64.yop
 
-ThreadNUM			     : 1
+ThreadsNUM			     : 4
 TimeStart                            : 0.0078125
 TimeEnd				     : 1
 
-SaveToBinary                         : TRUE		    
+IsSaveToBinary                         : TRUE		    
 TimeOutputInterval	  	     : 1.00486382
 IsOutputEveryTimeStep                : false
 
@@ -21,7 +21,6 @@ OmegaLambda                          : 0.691
 HubbleConstant                       : 0.6774
 
 IsUseSelfGravity	             : TRUE
-OpenningAngle		             : 0.5
 ThresholdOpenCube                    : 16
 SofteningLengthParticle	             : 0.029
 SofteningLengthGasRatio	             : 0.7
@@ -40,12 +39,11 @@ UnitMass			     : 2.829302987E+40
 UnitTemperature		  	     : 5.1736388E+3
 					  
 ## Boundary Condtions : Periodic = 0, Transmissive = 1, Reflective = 2, unused = 3, InflowAndExit = 4, Exit = 5, InflowAndInflow = 6
-Boundary_ConditionX	             : 0			
-Boundary_ConditionY	             : 0		
-Boundary_ConditionZ	             : 0			
+BoundaryConditionX	             : 0			
+BoundaryConditionY	             : 0		
+BoundaryConditionZ	             : 0			
 
 MeshExtendLayerNUM	             : 3
 DimensionEvolve		             : 3
 
 IsUseAMR		             : FALSE
-AMRFactor	                     : 1.5
