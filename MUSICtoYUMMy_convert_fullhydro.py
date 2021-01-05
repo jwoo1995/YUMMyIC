@@ -1,4 +1,4 @@
-import Howtouse_struct
+import struct
 import math
 
 import numpy as np
