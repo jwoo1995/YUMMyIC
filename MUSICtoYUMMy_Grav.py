@@ -2,21 +2,21 @@ import struct
 import math
 import sys
 import numpy as np
-from objsize import get_deep_size
+#from objsize import get_deep_size
 import matplotlib.pyplot as plt
 import matplotlib.font_manager
 from mpl_toolkits.mplot3d import Axes3D
 
 # Input the file information
 # ----------------------------------------------------------
-base = "./"
-filename = "ics_gadget_grid.dat"  # as GADGET format
+#base = "./"
+filename = "DMonly_L100n32.dat"  # as GADGET format
 
-yopname = "ics_gadget.yop"
-yicgname = "ics_gadget.yicg"
+yopname = "DMonly_L100n32.yop"
+yicgname = "DMonly_L100n32.yicg"
 # ----------------------------------------------------------
 
-f = base + filename
+f = filename
 
 
 # Calculate the unit scale
@@ -110,6 +110,7 @@ print('time in seconds =', time)
 
 dummy_redshift = GADGET.read(dblsize)
 redshift = struct.unpack('d', dummy_redshift)
+scale_factor = 1.0 / (1+redshift[0])
 print('redshift =', redshift)
 
 
@@ -188,14 +189,14 @@ if Nwithmass > 0:
 # dummy = GADGET.read(intsize)
 # Read internal energies
 NGas = npart[0]
-
+"""
 internalE_init_dummy = GADGET.read(intsize)
 print(internalE_init_dummy)
 print('internalE block size =', struct.unpack('i',internalE_init_dummy),'=', fltsize * NGas)
 dummy_internalE = GADGET.read(fltsize * NGas)
 u = struct.unpack(str(NGas) + 'f', dummy_internalE)
+
 internalE_final_dummy = GADGET.read(intsize)
-"""
 print(GADGET.read(2))
 density_init_dummy = GADGET.read(intsize)
 print('density block size =', struct.unpack('i',density_init_dummy),'=', fltsize * NGas)
@@ -269,9 +270,10 @@ for i in range(npart[0], N):
 
 # Write velocities
 for i in range(npart[0], N):
-    vxtemp = vx[i] * 1e3 / scale_v # (km/s) -> (m/s) -> unit velocity
-    vytemp = vy[i] * 1e3 / scale_v
-    vztemp = vz[i] * 1e3 / scale_v
+
+    vxtemp = math.sqrt(scale_factor) * scale_factor * vx[i] * 1e3 / scale_v # (km/s) -> (m/s) -> unit velocity
+    vytemp = math.sqrt(scale_factor) * scale_factor * vy[i] * 1e3 / scale_v
+    vztemp = math.sqrt(scale_factor) * scale_factor * vz[i] * 1e3 / scale_v
     dummy = struct.pack('3d', vxtemp, vytemp, vztemp)
     yop.write(dummy)
 
