@@ -1,0 +1,51 @@
+Name                                 : CosmoL75n64
+
+Gas_File			     : L75n64.yicg
+Gravity_File		             : L75n64.yop
+
+ThreadNUM			     : 1
+TimeStart                            : 0.0078125
+TimeEnd				     : 1
+
+SaveToBinary                         : TRUE		    
+TimeOutputInterval	  	     : 1.00486382
+IsOutputEveryTimeStep                : false
+
+PeriodicBCLayersNUM                  : 5
+PeriodicTreeLevelMAX                 : 2
+IsUseCosmology                       : true
+
+OmegaMatter                          : 0.309
+OmegaBaryon                          : 0.0486
+OmegaLambda                          : 0.691
+HubbleConstant                       : 0.6774
+
+IsUseSelfGravity	             : TRUE
+OpenningAngle		             : 0.5
+ThresholdOpenCube                    : 16
+SofteningLengthParticle	             : 0.029
+SofteningLengthGasRatio	             : 0.7
+
+MovingMeshFactor                     : 1
+CFL				     : 0.05
+
+## UnitStyle : Simulation Unit = 0, Physical Unit = 1
+UnitStyle			     : 1			
+## [Length] : 1 pc    in meters  = 3.086E+16, 1 au in meters = 1.496E+11
+## [Time  ] : 1 year  in seconds = 3.154E+7
+## [Mass  ] : 1 M_sun in Kgs     = 1.988E+30
+UnitLength			     : 4.389758179E+22          
+UnitTime			     : 6.693072546e+18          
+UnitMass			     : 2.829302987E+40          
+UnitTemperature		  	     : 5.1736388E+3
+					  
+## Boundary Condtions : Periodic = 0, Transmissive = 1, Reflective = 2, unused = 3, InflowAndExit = 4, Exit = 5, InflowAndInflow = 6
+Boundary_ConditionX	             : 0			
+Boundary_ConditionY	             : 0		
+Boundary_ConditionZ	             : 0			
+
+MeshExtendLayerNUM	             : 3
+DimensionEvolve		             : 3
+
+IsUseAMR		             : FALSE
+AMRFactor	                     : 1.5
